@@ -80,8 +80,16 @@ export async function POST(req: NextRequest) {
     const name = asTrimmedString((body as any)?.name, 120);
     const organisation = asTrimmedString((body as any)?.organisation, 160);
     const email = asTrimmedString((body as any)?.email, 254);
-    const location = asTrimmedString((body as any)?.location, 160);
     const message = asTrimmedString((body as any)?.message, 4000);
+
+    const role = asTrimmedString((body as any)?.role, 120);
+    const serviceType = asTrimmedString((body as any)?.service_type, 120);
+    const timeframe = asTrimmedString((body as any)?.timeframe, 120);
+    const referral = asTrimmedString((body as any)?.referral, 200);
+    const constraintsNote = asTrimmedString((body as any)?.constraints_note, 60);
+    const preferredContact = asTrimmedString((body as any)?.preferred_contact, 120);
+    const attachmentUrl = asTrimmedString((body as any)?.attachment_url, 2000);
+    const attachmentPath = asTrimmedString((body as any)?.attachment_path, 1024);
 
     // Basic validation
     if (!name || !email || !message) {
@@ -105,12 +113,15 @@ export async function POST(req: NextRequest) {
       name,
       organisation: organisation || null,
       email,
-      location: location || null,
+      role: role || null,
+      service_type: serviceType || null,
+      timeframe: timeframe || null,
       message,
-      source: "website-contact",
-      // Helpful metadata for ops/abuse monitoring
-      ip_address: ip === "unknown" ? null : ip,
-      user_agent: req.headers.get("user-agent") || null,
+      referral: referral || null,
+      constraints_note: constraintsNote || null,
+      preferred_contact: preferredContact || null,
+      attachment_url: attachmentUrl || null,
+      attachment_path: attachmentPath || null,
     });
 
     if (error) {
