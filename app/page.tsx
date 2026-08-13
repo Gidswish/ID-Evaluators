@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { supabaseAdmin } from "../lib/supabaseAdmin";
+import { Hero } from "../components/Hero";
 import {
   FileText,
   BookOpen,
@@ -14,6 +15,7 @@ import {
   GraduationCap,
   CheckCircle2,
 } from "lucide-react";
+import { Services } from "@/components/Services";
 
 type Evaluation = {
   id: string;
@@ -61,102 +63,9 @@ export default async function HomePage() {
 
   return (
     <main className="min-h-screen bg-slate-50 text-[15px] sm:text-[16px]">
+      <Hero />
+      <Services/>
       <section className="container mx-auto px-4 py-10 sm:py-14 max-w-6xl space-y-12">
-        {/* HERO */}
-        <div className="grid gap-8 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] items-center">
-          {/* Text column */}
-          <div className="space-y-5">
-            <div className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1.5 text-xs font-medium text-emerald-800">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-              ID Evaluators • Independent evaluators
-            </div>
-
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.03]">
-              Practical evaluations, research and learning support for{" "}
-              <span className="text-emerald-700">
-                real-world programmes
-              </span>
-              .
-            </h1>
-
-            <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl">
-              ID Evaluators works with NGOs, public institutions and
-              partners to design and deliver evaluations, studies and
-              training that are grounded in field realities – not just
-              desk reports.
-            </p>
-
-            <div className="flex flex-wrap items-center gap-3 text-xs sm:text-sm">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center rounded-full bg-emerald-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-emerald-500"
-              >
-                Speak to an evaluator
-                <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
-              </Link>
-              <Link
-                href="/case-studies"
-                className="inline-flex items-center justify-center rounded-full border border-slate-300 px-4 py-2.5 text-sm font-medium text-slate-700 hover:border-emerald-300 hover:text-emerald-700 bg-white"
-              >
-                View our works
-              </Link>
-            </div>
-
-            <div className="flex flex-wrap gap-4 pt-3 text-sm text-slate-500">
-              <div className="flex items-center gap-2">
-                <ClipboardList className="h-4 w-4 text-emerald-600" />
-                <span>Baseline, mid-term &amp; endline evaluations</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <LineChart className="h-4 w-4 text-emerald-600" />
-                <span>Mixed-methods research &amp; learning reviews</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Users className="h-4 w-4 text-emerald-600" />
-                <span>Training &amp; accompaniment for teams</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Image column */}
-          <div className="relative h-64 sm:h-80 lg:h-88">
-            {/* Main fieldwork image */}
-            <div className="absolute inset-y-0 right-0 w-[75%] rounded-3xl overflow-hidden bg-slate-900 shadow-lg shadow-slate-900/20">
-              <Image
-                src="/images/hero-fieldwork.jpg"
-                alt="Field evaluation work in progress"
-                fill
-                className="object-cover transition-transform duration-700 ease-out hover:scale-[1.03]"
-              />
-              <div className="absolute inset-0 bg-linear-to-t from-slate-900/70 via-slate-900/10 to-transparent" />
-            </div>
-
-            {/* Small workshop image */}
-            <div className="absolute -left-2 bottom-4 sm:-left-6 sm:bottom-6 w-40 sm:w-48 rounded-2xl overflow-hidden bg-slate-800 shadow-md shadow-slate-900/40">
-              <Image
-                src="/images/hero-workshop.jpg"
-                alt="Workshop or learning session"
-                width={400}
-                height={260}
-                className="h-full w-full object-cover transition-transform duration-700 ease-out hover:scale-[1.04]"
-              />
-              <div className="absolute inset-0 bg-linear-to-t from-slate-900/60 via-transparent to-transparent" />
-            </div>
-
-            {/* Overlay stats card */}
-            <div className="absolute top-4 left-4 sm:left-6 rounded-2xl bg-white/90 backdrop-blur border border-slate-100 px-3 py-2.5 text-[11px] text-slate-700 shadow-sm">
-              <p className="font-semibold text-slate-900">
-                Recent work snapshots
-              </p>
-              <ul className="mt-1 space-y-0.5">
-                <li>• E-waste &amp; environment evaluations</li>
-                <li>• Social protection &amp; livelihoods</li>
-                <li>• Capacity building for local partners</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
         {/* FOCUS AREAS STRIP */}
         <section className="rounded-3xl border border-slate-100 bg-white/80 backdrop-blur px-4 sm:px-6 py-5 shadow-sm">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">

@@ -57,7 +57,7 @@ export default async function AdminContactPage({ searchParams }: PageProps) {
 
   return (
     <main className="min-h-screen bg-slate-50">
-      <section className="container mx-auto max-w-5xl px-4 py-10 sm:py-14 space-y-6">
+      <section className="container mx-auto max-w-5xl px-4 pt-28 pb-10 sm:pt-36 sm:pb-14 space-y-6">
         <AdminTabs />
         <header className="space-y-2">
           <h1 className="text-xl sm:text-2xl font-bold text-slate-900">Admin · Contact inquiries</h1>

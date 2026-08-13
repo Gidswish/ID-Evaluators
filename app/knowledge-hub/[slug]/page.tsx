@@ -46,7 +46,7 @@ export default async function BlogPostPage({
 
   return (
     <main className="min-h-screen bg-slate-50">
-      <section className="container mx-auto px-4 py-10 sm:py-14 max-w-3xl space-y-6">
+      <section className="container mx-auto px-4 pt-28 pb-10 sm:pt-36 sm:pb-14 max-w-3xl space-y-6">
         {/* Back link */}
         <div className="text-xs">
           <Link

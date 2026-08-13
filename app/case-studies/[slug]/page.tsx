@@ -68,7 +68,7 @@ export default async function EvaluationPage({
     <main className="min-h-screen bg-slate-50 text-[15px] sm:text-[16px]">
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(1100px_circle_at_10%_0%,rgba(16,185,129,0.10),transparent_55%),radial-gradient(900px_circle_at_95%_10%,rgba(15,23,42,0.06),transparent_55%)]" />
 
-      <section className="container mx-auto px-4 py-10 sm:py-14 max-w-5xl space-y-6">
+      <section className="container mx-auto px-4 pt-28 pb-10 sm:pt-36 sm:pb-14 max-w-5xl space-y-6">
         {/* Back link */}
         <div className="text-sm">
           <Link

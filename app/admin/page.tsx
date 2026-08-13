@@ -17,7 +17,7 @@ export default async function AdminDashboard({ searchParams }: PageProps) {
     // Not logged in → password form
     return (
       <main className="min-h-screen bg-slate-50">
-        <section className="container mx-auto px-4 py-16 max-w-md">
+        <section className="container mx-auto px-4 pt-28 pb-16 sm:pt-36 max-w-md">
           <h1 className="text-2xl font-bold text-slate-900 mb-4">Admin login</h1>
           {loggedOutQuery === "1" && (
             <p className="mb-3 text-xs text-green-700 bg-green-50 border border-green-200 px-3 py-2 rounded-lg">
@@ -63,7 +63,7 @@ export default async function AdminDashboard({ searchParams }: PageProps) {
   // Logged in → dashboard with "tabs"
   return (
     <main className="min-h-screen bg-slate-50">
-      <section className="container mx-auto px-4 py-10 sm:py-14 max-w-4xl space-y-8">
+      <section className="container mx-auto px-4 pt-28 pb-10 sm:pt-36 sm:pb-14 max-w-4xl space-y-8">
         <header className="space-y-2">
           <h1 className="text-2xl sm:text-3xl font-bold text-slate-900">
             Admin dashboard

@@ -37,7 +37,7 @@ export default async function AdminWorksPage({ searchParams }: PageProps) {
     // Reuse the same login flow, just a different page heading
     return (
       <main className="min-h-screen bg-slate-50">
-        <section className="container mx-auto px-4 py-16 max-w-md">
+        <section className="container mx-auto px-4 pt-28 pb-16 sm:pt-36 max-w-md">
           <h1 className="text-2xl font-bold text-slate-900 mb-4">Admin login</h1>
           {errorQuery === "1" && (
             <p className="mb-3 text-xs text-red-600">
@@ -90,7 +90,7 @@ export default async function AdminWorksPage({ searchParams }: PageProps) {
 
   return (
     <main className="min-h-screen bg-slate-50">
-      <section className="container mx-auto px-4 py-10 sm:py-14 max-w-5xl space-y-8">
+      <section className="container mx-auto px-4 pt-28 pb-10 sm:pt-36 sm:pb-14 max-w-5xl space-y-8">
         <header className="space-y-2">
           <h1 className="text-2xl sm:text-3xl font-bold text-slate-900">
             Our works – Admin

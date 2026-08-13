@@ -104,7 +104,7 @@ export default async function CaseStudiesPage({ searchParams }: PageProps) {
     <main className="min-h-screen bg-slate-50 text-[15px] sm:text-[16px]">
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(1100px_circle_at_10%_0%,rgba(16,185,129,0.10),transparent_55%),radial-gradient(900px_circle_at_95%_10%,rgba(15,23,42,0.06),transparent_55%)]" />
 
-      <section className="container mx-auto px-4 py-10 sm:py-14 max-w-5xl space-y-8">
+      <section className="container mx-auto px-4 pt-28 pb-10 sm:pt-36 sm:pb-14 max-w-5xl space-y-8">
         {/* Hero */}
         <header className="grid gap-5 sm:grid-cols-[minmax(0,2fr)_minmax(0,1.2fr)] items-center">
           <div className="space-y-3">
@@ -146,13 +146,13 @@ export default async function CaseStudiesPage({ searchParams }: PageProps) {
             </div>
 
             {activeFilters.length > 0 && (
-              <a
+              <Link
                 href="/case-studies"
                 className="inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white px-3 py-1 text-[11px] text-slate-600 hover:border-emerald-300 hover:text-emerald-700"
               >
                 <X className="h-3 w-3" />
                 Clear all
-              </a>
+              </Link>
             )}
           </div>
 

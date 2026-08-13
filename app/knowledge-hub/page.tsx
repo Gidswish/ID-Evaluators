@@ -78,7 +78,7 @@ export default async function KnowledgeHubPage({ searchParams }: PageProps) {
 
   return (
     <main className="min-h-screen bg-slate-50">
-      <section className="container mx-auto px-4 py-10 sm:py-14 max-w-5xl space-y-8">
+      <section className="container mx-auto px-4 pt-28 pb-10 sm:pt-36 sm:pb-14 max-w-5xl space-y-8">
         {/* Hero */}
         <header className="grid gap-5 sm:grid-cols-[minmax(0,2fr)_minmax(0,1.2fr)] items-center">
           <div className="space-y-3">
@@ -160,12 +160,12 @@ export default async function KnowledgeHubPage({ searchParams }: PageProps) {
             >
               Apply filters
             </button>
-            <a
+            <Link
               href="/knowledge-hub"
               className="text-slate-500 hover:text-emerald-700"
             >
               Clear all
-            </a>
+            </Link>
           </div>
         </form>
 

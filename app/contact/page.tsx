@@ -20,7 +20,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
 
   return (
     <main className="min-h-screen bg-slate-50">
-      <section className="container mx-auto px-4 py-10 sm:py-14 max-w-5xl space-y-8">
+      <section className="container mx-auto px-4 pt-28 pb-10 sm:pt-36 sm:pb-14 max-w-5xl space-y-8">
         {/* Header */}
         <header className="grid gap-6 sm:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] items-start">
           <div className="space-y-3 max-w-3xl">
