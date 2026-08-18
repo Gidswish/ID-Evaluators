@@ -17,6 +17,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <noscript>
+          <style>{`[data-reveal] { opacity: 1 !important; transform: none !important; }`}</style>
+        </noscript>
+      </head>
       <body className="min-h-screen bg-slate-50 text-slate-900">
         <div className="flex flex-col min-h-screen">
           {/* Header / Navigation */}

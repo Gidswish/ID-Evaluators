@@ -16,6 +16,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import { Services } from "@/components/Services";
+import { Reveal } from "@/components/Reveal";
 
 type Evaluation = {
   id: string;
@@ -92,21 +93,20 @@ export default async function HomePage() {
               { icon: ShieldCheck, title: "Social protection", desc: "Targeting, delivery and outcomes." },
               { icon: Globe, title: "Livelihoods & inclusion", desc: "Market systems and resilience." },
               { icon: GraduationCap, title: "Capacity building", desc: "Workshops, tools and accompaniment." },
-            ].map((item) => (
-              <div
-                key={item.title}
-                className="rounded-2xl border border-slate-100 bg-white px-4 py-3 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
-              >
-                <div className="flex items-start gap-3">
-                  <div className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-emerald-50 text-emerald-700">
-                    <item.icon className="h-4 w-4" />
-                  </div>
-                  <div className="space-y-0.5">
-                    <p className="text-sm font-semibold text-slate-900">{item.title}</p>
-                    <p className="text-xs text-slate-600 leading-relaxed">{item.desc}</p>
+            ].map((item, idx) => (
+              <Reveal key={item.title} delay={idx * 80}>
+                <div className="rounded-2xl border border-slate-100 bg-white px-4 py-3 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+                  <div className="flex items-start gap-3">
+                    <div className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-emerald-50 text-emerald-700">
+                      <item.icon className="h-4 w-4" />
+                    </div>
+                    <div className="space-y-0.5">
+                      <p className="text-sm font-semibold text-slate-900">{item.title}</p>
+                      <p className="text-xs text-slate-600 leading-relaxed">{item.desc}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </section>
@@ -158,7 +158,7 @@ export default async function HomePage() {
                   icon: LineChart,
                 },
               ].map((item, idx, arr) => (
-                <div key={item.step} className="flex-1">
+                <Reveal key={item.step} delay={idx * 120} className="flex-1">
                   <div className="group h-full rounded-2xl bg-white border border-slate-100 p-4 shadow-sm hover:border-emerald-200 hover:shadow-md transition">
                     <div className="flex items-start justify-between gap-3">
                       <div className="space-y-1">
@@ -209,7 +209,7 @@ export default async function HomePage() {
                       </div>
                     </>
                   )}
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -231,79 +231,87 @@ export default async function HomePage() {
             </Link>
           </div>
           <div className="grid gap-4 sm:grid-cols-3">
-            <div className="rounded-2xl bg-white border border-slate-100 p-4 shadow-sm space-y-2">
-              <div className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-emerald-50 text-emerald-700">
-                <ClipboardList className="h-4 w-4" />
+            <Reveal delay={0}>
+              <div className="rounded-2xl bg-white border border-slate-100 p-4 shadow-sm space-y-2">
+                <div className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-emerald-50 text-emerald-700">
+                  <ClipboardList className="h-4 w-4" />
+                </div>
+                <p className="text-base font-semibold text-slate-900">
+                  Evaluations &amp; reviews
+                </p>
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  Baseline, mid-term, endline and thematic evaluations that
+                  combine fieldwork, document review and data analysis.
+                </p>
               </div>
-              <p className="text-base font-semibold text-slate-900">
-                Evaluations &amp; reviews
-              </p>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                Baseline, mid-term, endline and thematic evaluations that
-                combine fieldwork, document review and data analysis.
-              </p>
-            </div>
+            </Reveal>
 
-            <div className="rounded-2xl bg-white border border-slate-100 p-4 shadow-sm space-y-2">
-              <div className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-emerald-50 text-emerald-700">
-                <LineChart className="h-4 w-4" />
+            <Reveal delay={120}>
+              <div className="rounded-2xl bg-white border border-slate-100 p-4 shadow-sm space-y-2">
+                <div className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-emerald-50 text-emerald-700">
+                  <LineChart className="h-4 w-4" />
+                </div>
+                <p className="text-base font-semibold text-slate-900">
+                  Research &amp; learning
+                </p>
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  Mixed-methods studies, learning reviews and evidence
+                  summaries to support programme and policy decisions.
+                </p>
               </div>
-              <p className="text-base font-semibold text-slate-900">
-                Research &amp; learning
-              </p>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                Mixed-methods studies, learning reviews and evidence
-                summaries to support programme and policy decisions.
-              </p>
-            </div>
+            </Reveal>
 
-            <div className="rounded-2xl bg-white border border-slate-100 p-4 shadow-sm space-y-2">
-              <div className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-emerald-50 text-emerald-700">
-                <Users className="h-4 w-4" />
+            <Reveal delay={240}>
+              <div className="rounded-2xl bg-white border border-slate-100 p-4 shadow-sm space-y-2">
+                <div className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-emerald-50 text-emerald-700">
+                  <Users className="h-4 w-4" />
+                </div>
+                <p className="text-base font-semibold text-slate-900">
+                  Training &amp; accompaniment
+                </p>
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  Tailored workshops, mentoring and on-the-job support for
+                  teams building evaluation and learning capacities.
+                </p>
               </div>
-              <p className="text-base font-semibold text-slate-900">
-                Training &amp; accompaniment
-              </p>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                Tailored workshops, mentoring and on-the-job support for
-                teams building evaluation and learning capacities.
-              </p>
-            </div>
+            </Reveal>
           </div>
         </section>
 
         {/* TRUSTED BY */}
-        <section className="rounded-3xl bg-slate-900 px-5 sm:px-6 py-6 text-slate-100">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <div className="space-y-1">
-              <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-400">
-                Who we work with
-              </p>
-              <p className="text-sm sm:text-base font-semibold">
-                NGOs, donors, public institutions and research partners.
+        <Reveal>
+          <section className="rounded-3xl bg-slate-900 px-5 sm:px-6 py-6 text-slate-100">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <div className="space-y-1">
+                <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-400">
+                  Who we work with
+                </p>
+                <p className="text-sm sm:text-base font-semibold">
+                  NGOs, donors, public institutions and research partners.
+                </p>
+              </div>
+              <p className="text-xs sm:text-sm text-slate-300 max-w-md">
+                Supporting evidence-based decision-making across environment, social protection, livelihoods and capacity building.
               </p>
             </div>
-            <p className="text-xs sm:text-sm text-slate-300 max-w-md">
-              Supporting evidence-based decision-making across environment, social protection, livelihoods and capacity building.
-            </p>
-          </div>
 
-          <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-3">
-            {[
-              "International NGOs",
-              "Government agencies",
-              "Foundations & donors",
-              "Research institutions",
-            ].map((label) => (
-              <div
-                key={label}
-                className="rounded-xl bg-slate-800 px-3 py-2 text-center text-xs sm:text-sm font-medium text-slate-100"
-              >
-                {label}
-              </div>
-            ))}
-          </div>
-        </section>
+            <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-3">
+              {[
+                "International NGOs",
+                "Government agencies",
+                "Foundations & donors",
+                "Research institutions",
+              ].map((label) => (
+                <div
+                  key={label}
+                  className="rounded-xl bg-slate-800 px-3 py-2 text-center text-xs sm:text-sm font-medium text-slate-100"
+                >
+                  {label}
+                </div>
+              ))}
+            </div>
+          </section>
+        </Reveal>
 
         {/* OUR TEAM & FIELD PRESENCE */}
         <section className="space-y-4">
@@ -332,43 +340,47 @@ export default async function HomePage() {
           </div>
 
           <div className="grid gap-3 sm:grid-cols-12">
-            <div className="relative h-56 sm:h-72 sm:col-span-7 rounded-3xl overflow-hidden border border-slate-200 bg-slate-900 shadow-sm">
-              <Image
-                src="/images/hero-fieldwork.jpg"
-                alt="Field presence and stakeholder engagement"
-                fill
-                className="object-cover transition duration-500 hover:scale-[1.02]"
-                sizes="(min-width: 640px) 58vw, 100vw"
-              />
-              <div className="absolute inset-0 bg-linear-to-t from-slate-900/55 via-slate-900/10 to-transparent" />
-              <div className="absolute bottom-3 left-4 right-4">
-                <p className="text-[11px] font-semibold text-emerald-200">
-                  Field engagement
-                </p>
-                <p className="text-xs sm:text-sm text-slate-100">
-                  Listening to stakeholders and observing implementation realities.
-                </p>
+            <Reveal delay={0} className="sm:col-span-7">
+              <div className="relative h-56 sm:h-72 rounded-3xl overflow-hidden border border-slate-200 bg-slate-900 shadow-sm">
+                <Image
+                  src="/images/hero-fieldwork.jpg"
+                  alt="Field presence and stakeholder engagement"
+                  fill
+                  className="object-cover transition duration-500 hover:scale-[1.02]"
+                  sizes="(min-width: 640px) 58vw, 100vw"
+                />
+                <div className="absolute inset-0 bg-linear-to-t from-slate-900/55 via-slate-900/10 to-transparent" />
+                <div className="absolute bottom-3 left-4 right-4">
+                  <p className="text-[11px] font-semibold text-emerald-200">
+                    Field engagement
+                  </p>
+                  <p className="text-xs sm:text-sm text-slate-100">
+                    Listening to stakeholders and observing implementation realities.
+                  </p>
+                </div>
               </div>
-            </div>
+            </Reveal>
 
-            <div className="relative h-56 sm:h-72 sm:col-span-5 rounded-3xl overflow-hidden border border-slate-200 bg-slate-900 shadow-sm">
-              <Image
-                src="/images/team-field.jpg"
-                alt="Community-level fieldwork and observations"
-                fill
-                className="object-cover transition duration-500 hover:scale-[1.02]"
-                sizes="(min-width: 640px) 42vw, 100vw"
-              />
-              <div className="absolute inset-0 bg-linear-to-t from-slate-900/55 via-slate-900/10 to-transparent" />
-              <div className="absolute bottom-3 left-4 right-4">
-                <p className="text-[11px] font-semibold text-emerald-200">
-                  Community presence
-                </p>
-                <p className="text-xs sm:text-sm text-slate-100">
-                  Capturing context, outcomes and lived experiences.
-                </p>
+            <Reveal delay={150} className="sm:col-span-5">
+              <div className="relative h-56 sm:h-72 rounded-3xl overflow-hidden border border-slate-200 bg-slate-900 shadow-sm">
+                <Image
+                  src="/images/team-field.jpg"
+                  alt="Community-level fieldwork and observations"
+                  fill
+                  className="object-cover transition duration-500 hover:scale-[1.02]"
+                  sizes="(min-width: 640px) 42vw, 100vw"
+                />
+                <div className="absolute inset-0 bg-linear-to-t from-slate-900/55 via-slate-900/10 to-transparent" />
+                <div className="absolute bottom-3 left-4 right-4">
+                  <p className="text-[11px] font-semibold text-emerald-200">
+                    Community presence
+                  </p>
+                  <p className="text-xs sm:text-sm text-slate-100">
+                    Capturing context, outcomes and lived experiences.
+                  </p>
+                </div>
               </div>
-            </div>
+            </Reveal>
           </div>
 
           <div className="grid gap-3 sm:grid-cols-3">
@@ -385,14 +397,13 @@ export default async function HomePage() {
                 title: "Use-focused learning",
                 desc: "Recommendations designed for adoption and programme improvement.",
               },
-            ].map((item) => (
-              <div
-                key={item.title}
-                className="rounded-2xl bg-white/80 backdrop-blur border border-slate-100 px-4 py-3 shadow-sm"
-              >
-                <p className="text-sm font-semibold text-slate-900">{item.title}</p>
-                <p className="text-xs text-slate-600 leading-relaxed mt-1">{item.desc}</p>
-              </div>
+            ].map((item, idx) => (
+              <Reveal key={item.title} delay={idx * 100}>
+                <div className="rounded-2xl bg-white/80 backdrop-blur border border-slate-100 px-4 py-3 shadow-sm">
+                  <p className="text-sm font-semibold text-slate-900">{item.title}</p>
+                  <p className="text-xs text-slate-600 leading-relaxed mt-1">{item.desc}</p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </section>
@@ -420,7 +431,7 @@ export default async function HomePage() {
             </p>
           ) : (
             <div className="grid gap-4 sm:grid-cols-3">
-              {evaluations.map((ev) => {
+              {evaluations.map((ev, idx) => {
                 const metaLine = [
                   ev.type,
                   ev.sector,
@@ -431,43 +442,44 @@ export default async function HomePage() {
                   .join(" • ");
 
                 return (
-                  <Link
-                    key={ev.id}
-                    href={`/case-studies/${ev.slug}`}
-                    className="group rounded-2xl bg-white border border-slate-100 p-4 shadow-sm hover:border-emerald-200 hover:shadow-md transition flex flex-col gap-3 overflow-hidden"
-                  >
-                    <div className="relative h-50 rounded-xl overflow-hidden border border-slate-100 bg-slate-900">
-                      <Image
-                        src={ev.cover_image_url || "/images/hero-fieldwork.jpg"}
-                        alt=""
-                        fill
-                        className="object-cover opacity-90 group-hover:opacity-100 transition duration-500 group-hover:scale-[1.03]"
-                        sizes="(min-width: 640px) 33vw, 100vw"
-                      />
-                      <div className="absolute inset-0 bg-linear-to-t from-slate-900/55 via-transparent to-transparent" />
-                    </div>
-                    <p className="text-[11px] font-semibold text-emerald-700">
-                      Evaluation / study
-                    </p>
-                    <h3 className="mt-1 text-base font-semibold text-slate-900 group-hover:text-emerald-800">
-                      {ev.title}
-                    </h3>
-                    {metaLine && (
-                      <p className="mt-0.5 text-[11px] text-slate-500">
-                        {metaLine}
+                  <Reveal key={ev.id} delay={idx * 100}>
+                    <Link
+                      href={`/case-studies/${ev.slug}`}
+                      className="group rounded-2xl bg-white border border-slate-100 p-4 shadow-sm hover:border-emerald-200 hover:shadow-md transition flex flex-col gap-3 overflow-hidden"
+                    >
+                      <div className="relative h-50 rounded-xl overflow-hidden border border-slate-100 bg-slate-900">
+                        <Image
+                          src={ev.cover_image_url || "/images/hero-fieldwork.jpg"}
+                          alt=""
+                          fill
+                          className="object-cover opacity-90 group-hover:opacity-100 transition duration-500 group-hover:scale-[1.03]"
+                          sizes="(min-width: 640px) 33vw, 100vw"
+                        />
+                        <div className="absolute inset-0 bg-linear-to-t from-slate-900/55 via-transparent to-transparent" />
+                      </div>
+                      <p className="text-[11px] font-semibold text-emerald-700">
+                        Evaluation / study
                       </p>
-                    )}
-                    {ev.summary && (
-                      <p className="mt-2 text-sm text-slate-600 leading-relaxed line-clamp-3">
-                        {ev.summary}
-                      </p>
-                    )}
-                    {ev.report_url && (
-                      <p className="mt-2 text-[11px] text-emerald-700">
-                        Report available →
-                      </p>
-                    )}
-                  </Link>
+                      <h3 className="mt-1 text-base font-semibold text-slate-900 group-hover:text-emerald-800">
+                        {ev.title}
+                      </h3>
+                      {metaLine && (
+                        <p className="mt-0.5 text-[11px] text-slate-500">
+                          {metaLine}
+                        </p>
+                      )}
+                      {ev.summary && (
+                        <p className="mt-2 text-sm text-slate-600 leading-relaxed line-clamp-3">
+                          {ev.summary}
+                        </p>
+                      )}
+                      {ev.report_url && (
+                        <p className="mt-2 text-[11px] text-emerald-700">
+                          Report available →
+                        </p>
+                      )}
+                    </Link>
+                  </Reveal>
                 );
               })}
             </div>
@@ -497,7 +509,7 @@ export default async function HomePage() {
             </p>
           ) : (
             <div className="grid gap-4 sm:grid-cols-3">
-              {posts.map((post) => {
+              {posts.map((post, idx) => {
                 const dateLabel = post.published_at
                   ? new Date(post.published_at).toLocaleDateString(
                       undefined,
@@ -510,41 +522,42 @@ export default async function HomePage() {
                   : null;
 
                 return (
-                  <Link
-                    key={post.id}
-                    href={`/knowledge-hub/${post.slug}`}
-                    className="group rounded-2xl bg-white border border-slate-100 p-4 shadow-sm hover:border-emerald-200 hover:shadow-md transition flex flex-col gap-3 overflow-hidden"
-                  >
-                    <div className="relative h-50 rounded-xl overflow-hidden border border-slate-100 bg-slate-900">
-                      <Image
-                        src={post.featured_image_url || "/images/hero-workshop.jpg"}
-                        alt=""
-                        fill
-                        className="object-cover opacity-90 group-hover:opacity-100 transition duration-500 group-hover:scale-[1.03]"
-                        sizes="(min-width: 640px) 33vw, 100vw"
-                      />
-                      <div className="absolute inset-0 bg-linear-to-t from-slate-900/55 via-transparent to-transparent" />
-                    </div>
-                    <p className="text-[11px] font-semibold text-emerald-700">
-                      Knowledge note
-                    </p>
-                    <h3 className="mt-1 text-base font-semibold text-slate-900 group-hover:text-emerald-800">
-                      {post.title}
-                    </h3>
-                    <div className="mt-0.5 flex flex-wrap items-center gap-2 text-[11px] text-slate-500">
-                      {dateLabel && <span>{dateLabel}</span>}
-                      {post.tag && (
-                        <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-medium text-emerald-800">
-                          {post.tag}
-                        </span>
-                      )}
-                    </div>
-                    {post.summary && (
-                      <p className="mt-2 text-sm text-slate-600 leading-relaxed line-clamp-3">
-                        {post.summary}
+                  <Reveal key={post.id} delay={idx * 100}>
+                    <Link
+                      href={`/knowledge-hub/${post.slug}`}
+                      className="group rounded-2xl bg-white border border-slate-100 p-4 shadow-sm hover:border-emerald-200 hover:shadow-md transition flex flex-col gap-3 overflow-hidden"
+                    >
+                      <div className="relative h-50 rounded-xl overflow-hidden border border-slate-100 bg-slate-900">
+                        <Image
+                          src={post.featured_image_url || "/images/hero-workshop.jpg"}
+                          alt=""
+                          fill
+                          className="object-cover opacity-90 group-hover:opacity-100 transition duration-500 group-hover:scale-[1.03]"
+                          sizes="(min-width: 640px) 33vw, 100vw"
+                        />
+                        <div className="absolute inset-0 bg-linear-to-t from-slate-900/55 via-transparent to-transparent" />
+                      </div>
+                      <p className="text-[11px] font-semibold text-emerald-700">
+                        Knowledge note
                       </p>
-                    )}
-                  </Link>
+                      <h3 className="mt-1 text-base font-semibold text-slate-900 group-hover:text-emerald-800">
+                        {post.title}
+                      </h3>
+                      <div className="mt-0.5 flex flex-wrap items-center gap-2 text-[11px] text-slate-500">
+                        {dateLabel && <span>{dateLabel}</span>}
+                        {post.tag && (
+                          <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-medium text-emerald-800">
+                            {post.tag}
+                          </span>
+                        )}
+                      </div>
+                      {post.summary && (
+                        <p className="mt-2 text-sm text-slate-600 leading-relaxed line-clamp-3">
+                          {post.summary}
+                        </p>
+                      )}
+                    </Link>
+                  </Reveal>
                 );
               })}
             </div>

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { CountUp } from "./CountUp";
 
 export function Hero() {
   return (
@@ -46,15 +47,21 @@ export function Hero() {
             {/* Trust Signals / Metrics */}
             <div className="mt-12 pt-8 border-t border-slate-200 grid grid-cols-3 gap-8">
               <div>
-                <p className="text-3xl font-bold text-slate-900">12+</p>
+                <p className="text-3xl font-bold text-slate-900">
+                  <CountUp end={12} suffix="+" />
+                </p>
                 <p className="text-sm text-slate-500 mt-1">Years Experience</p>
               </div>
               <div>
-                <p className="text-3xl font-bold text-slate-900">150+</p>
+                <p className="text-3xl font-bold text-slate-900">
+                  <CountUp end={150} suffix="+" />
+                </p>
                 <p className="text-sm text-slate-500 mt-1">Projects Evaluated</p>
               </div>
               <div>
-                <p className="text-3xl font-bold text-slate-900">$2B</p>
+                <p className="text-3xl font-bold text-slate-900">
+                  <CountUp end={2} prefix="$" suffix="B" />
+                </p>
                 <p className="text-sm text-slate-500 mt-1">Funds Optimized</p>
               </div>
             </div>
@@ -82,7 +89,9 @@ export function Hero() {
                 <div className="h-2 w-2 rounded-full bg-emerald-500" />
                 <span className="text-xs font-semibold text-slate-500 uppercase tracking-wide">Efficiency Gain</span>
               </div>
-              <div className="text-2xl font-bold text-slate-900">+24.5%</div>
+              <div className="text-2xl font-bold text-slate-900">
+                <CountUp end={24.5} prefix="+" suffix="%" decimals={1} />
+              </div>
               <div className="text-xs text-slate-500 mt-1">Average client improvement</div>
             </div>
           </div>
