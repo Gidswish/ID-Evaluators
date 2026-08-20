@@ -1,6 +1,7 @@
 import { supabaseAdmin } from "../../lib/supabaseAdmin";
 import Link from "next/link";
 import Image from "next/image";
+import type { Metadata } from "next";
 import {
   FileText,
   MapPin,
@@ -11,6 +12,12 @@ import {
   SlidersHorizontal,
   X,
 } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Case Studies | ID Evaluators",
+  description:
+    "A curated selection of completed evaluations, reviews and learning studies across environment, e-waste, livelihoods and social impact.",
+};
 
 type Evaluation = {
   id: string;
@@ -277,7 +284,7 @@ export default async function CaseStudiesPage({ searchParams }: PageProps) {
                     </div>
                     <Image
                       src={thumbSrc}
-                      alt=""
+                      alt={ev.title}
                       fill
                       className="object-cover opacity-85 group-hover:opacity-95 transition-transform duration-700 ease-out will-change-transform group-hover:scale-105 group-hover:-translate-y-2 group-hover:translate-x-2"
                     />

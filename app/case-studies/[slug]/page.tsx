@@ -1,6 +1,7 @@
 import { supabaseAdmin } from "../../../lib/supabaseAdmin";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import type { Metadata } from "next";
 import { FileText, Briefcase, MapPin, CalendarDays, Tag, ArrowRight } from "lucide-react";
 
 type Evaluation = {
@@ -22,6 +23,30 @@ type Evaluation = {
   methods?: string | null;
   tags?: string[] | null;
 };
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+
+  const { data } = await supabaseAdmin
+    .from("evaluations")
+    .select("title, summary")
+    .eq("slug", slug)
+    .eq("is_published", true)
+    .single();
+
+  if (!data) {
+    return { title: "Case Study | ID Evaluators" };
+  }
+
+  return {
+    title: `${data.title} | ID Evaluators`,
+    description: data.summary || undefined,
+  };
+}
 
 export default async function EvaluationPage({
   params,

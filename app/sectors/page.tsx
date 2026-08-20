@@ -1,3 +1,11 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Sectors | ID Evaluators",
+  description:
+    "E-waste challenges look different in each context. We adapt our approach to the realities of your sector while keeping to best practice standards.",
+};
+
 export default function SectorsPage() {
   const sectors = [
     {

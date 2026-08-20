@@ -1,7 +1,14 @@
 import { supabaseAdmin } from "../../lib/supabaseAdmin";
 import Link from "next/link";
 import Image from "next/image";
+import type { Metadata } from "next";
 import { BookOpen, Search, Tag as TagIcon, ChevronLeft, ChevronRight } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Knowledge Hub | ID Evaluators",
+  description:
+    "Short pieces on evaluation practice, methods and learning from projects in different contexts — especially around environment, e-waste, and social impact.",
+};
 
 type BlogPost = {
   id: string;
@@ -195,7 +202,7 @@ export default async function KnowledgeHubPage({ searchParams }: PageProps) {
                   <div className="relative h-60 sm:h-60 bg-slate-900/90">
                     <Image
                       src={post.featured_image_url || "/images/hero-workshop.jpg"}
-                      alt=""
+                      alt={post.title}
                       fill
                       className="object-cover opacity-80 group-hover:opacity-95 transition-transform duration-700 ease-out will-change-transform group-hover:scale-105 group-hover:-translate-y-2 group-hover:translate-x-2"
                     />

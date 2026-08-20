@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from "next";
 import {
   ClipboardList,
   LineChart,
@@ -10,6 +11,12 @@ import {
   CheckCircle2,
   Globe,
 } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Services | ID Evaluators",
+  description:
+    "Evaluation, research and learning services tailored to your programme decisions — baselines, endline evaluations, mixed-methods studies and training.",
+};
 
 export default function ServicesPage() {
   return (

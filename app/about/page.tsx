@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from "next";
 import {
   Users,
   Handshake,
@@ -8,6 +9,12 @@ import {
   Globe,
   ArrowRight,
 } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "About Us | ID Evaluators",
+  description:
+    "ID Evaluators is an independent consultancy specialising in project and programme evaluation, research and training across development and environmental sectors.",
+};
 
 export default function AboutPage() {
   return (

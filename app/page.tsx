@@ -450,7 +450,7 @@ export default async function HomePage() {
                       <div className="relative h-50 rounded-xl overflow-hidden border border-slate-100 bg-slate-900">
                         <Image
                           src={ev.cover_image_url || "/images/hero-fieldwork.jpg"}
-                          alt=""
+                          alt={ev.title}
                           fill
                           className="object-cover opacity-90 group-hover:opacity-100 transition duration-500 group-hover:scale-[1.03]"
                           sizes="(min-width: 640px) 33vw, 100vw"
@@ -530,7 +530,7 @@ export default async function HomePage() {
                       <div className="relative h-50 rounded-xl overflow-hidden border border-slate-100 bg-slate-900">
                         <Image
                           src={post.featured_image_url || "/images/hero-workshop.jpg"}
-                          alt=""
+                          alt={post.title}
                           fill
                           className="object-cover opacity-90 group-hover:opacity-100 transition duration-500 group-hover:scale-[1.03]"
                           sizes="(min-width: 640px) 33vw, 100vw"

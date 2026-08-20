@@ -1,6 +1,7 @@
 import { supabaseAdmin } from "../../../lib/supabaseAdmin";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import type { Metadata } from "next";
 
 type BlogPost = {
   id: string;
@@ -12,6 +13,30 @@ type BlogPost = {
   published_at: string;
   is_published: boolean;
 };
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+
+  const { data } = await supabaseAdmin
+    .from("blog_posts")
+    .select("title, summary")
+    .eq("slug", slug)
+    .eq("is_published", true)
+    .single();
+
+  if (!data) {
+    return { title: "Knowledge Hub | ID Evaluators" };
+  }
+
+  return {
+    title: `${data.title} | ID Evaluators`,
+    description: data.summary || undefined,
+  };
+}
 
 export default async function BlogPostPage({
   params,

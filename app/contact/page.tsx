@@ -1,4 +1,5 @@
 import Image from "next/image";
+import type { Metadata } from "next";
 import {
   Mail,
   Phone,
@@ -10,6 +11,12 @@ import {
   AlertTriangle,
   Sparkles,
 } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Contact | ID Evaluators",
+  description:
+    "Talk to ID Evaluators about your evaluation, study or learning needs. Share your programme details and we'll respond with clarifying questions and suggested options.",
+};
 
 type PageProps = {
   searchParams: Promise<{ submitted?: string; error?: string }>;
